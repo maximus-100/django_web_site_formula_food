@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+
+{% block main %}
+<section class="featured-posts no-padding-top">
+    <div class="container">
+        <!-- Post-->
+        {% for product in products %}
+        <div class="row d-flex align-items-stretch {% cycle '' 'flex-row-reverse' %}">
+            <div class="text col-lg-7">
+                <div class="text-inner d-flex align-items-center">
+                    <div class="content">
+                        <header class="post-header">
+                            <div class="category"><a href="#">{{ product.post.category }}</a>
+                            </div>
+                            <a href="{{ product.post.get_absolute_url }}">
+                                <h2 class="h4">{{ product.post.title }}</h2></a>
+                        </header>
+                        <p>{{ product.post.content|truncatewords:20 }}</p>
+                        <footer class="post-footer d-flex align-items-center"><a href="#"
+                                                                                 class="author d-flex align-items-center flex-wrap">
+                            <div class="avatar"><img src="{{ product.user_image }}" alt="..."
+                                                     class="img-fluid"></div>
+                            <div class="title"><span>{{ product.post.author.first_name }}</span></div>
+                        </a>
+                            <div class="date"><i class="icon-clock"></i>{{ product.post.created_at|timesince }} ago
+                            </div>
+                            <div class="comments"><i class="icon-comment"></i>{{ product.comment_count }}</div>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="image col-lg-5"><img src="{{ product.post.photo_url }}" alt="..."></div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination pagination-template d-flex justify-content-center">
+        {% if page_obj.has_previous %}
+        <li class="page-item"><a href="?page={{ page_obj.previous_page_number }}" class="page-link"> <i class="fa fa-angle-left"></i></a></li>
+        {% endif %}
+        {% for p in page_obj.paginator.page_range %}
+
+        {% if page_obj.number == p %}
+        <li class="page-item  active"  aria-current="page"><a href="?page={{ p }}" class="page-link">{{ p }}
+        <span class="sr-only">(current)</span></a></li>
+        {% elif p > page_obj.number|add:-3 and p < page_obj.number|add:3 %}
+        <li class="page-item"><a href="?page={{ p }}" class="page-link">{{ p }}</a></li>
+        {% endif %}
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+        <li class="page-item"><a href="?page={{ page_obj.next_page_number }}" class="page-link"> <i class="fa fa-angle-right"></i></a></li>
+        {% endif %}
+    </ul>
+</nav>
+{% endblock main %}
+
+
+<!--<nav aria-label="...">-->
+<!--    <ul class="pagination justify-content-center">-->
+
+<!--        {% if page_obj.has_previous %}-->
+<!--        <li class="page-item">-->
+<!--            <a class="page-link" href="?page={{ page_obj.previous_page_number }}" tabindex="-1"> < </a>-->
+<!--        </li>-->
+<!--        {% endif %}-->
+
+<!--        {% for p in page_obj.paginator.page_range %}-->
+
+
+<!--        {% if page_obj.number == p %}-->
+<!--        <li class="page-item active" aria-current="page">-->
+<!--            <a class="page-link" href="?page={{ p }}">{{ p }}-->
+<!--                <span class="sr-only">(current)</span></a>-->
+<!--        </li>-->
+<!--        {% elif p > page_obj.number|add:-3 and p < page_obj.number|add:3 %}-->
+<!--        <li class="page-item">-->
+<!--            <a class="page-link" href="?page={{ p }}">{{ p }}</a>-->
+<!--        </li>-->
+<!--        {% endif %}-->
+<!--        {% endfor %}-->
+
+
+<!--        {% if page_obj.has_next %}-->
+<!--        <li class="page-item">-->
+<!--            <a class="page-link" href="?page={{ page_obj.next_page_number }}"> > </a>-->
+<!--        </li>-->
+<!--        {% endif %}-->
+
+<!--    </ul>-->
+<!--</nav>-->

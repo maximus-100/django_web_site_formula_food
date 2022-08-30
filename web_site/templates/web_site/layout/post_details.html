@@ -1,0 +1,25 @@
+<div class="post-thumbnail"><img src="{{ detail.post.photo_url }}" alt="..." class="img-fluid"></div>
+<div class="post-details">
+    <div class="post-meta d-flex justify-content-between">
+        <div class="category"><a href="#">{{ detail.post.category }}</a></div>
+    </div>
+    <h1>{{ detail.post.title }}<a href="#"><i
+            class="fa fa-bookmark-o"></i></a></h1>
+    <div class="post-footer d-flex align-items-center flex-column flex-sm-row"><a href="#"
+                                                                                  class="author d-flex align-items-center flex-wrap">
+        <div class="avatar"><img src="{{ detail.user_image }}" alt="..." class="img-fluid"></div>
+        <div class="title"><span>{{ detail.post.author }}</span></div>
+    </a>
+        <div class="d-flex align-items-center flex-wrap">
+            <div class="date"><i class="icon-clock"></i>{{ detail.post.created_at|timesince }} ago</div>
+<!--<div class="views"><i class="icon-eye"></i>{{ detail.post.get_count_view }}</div>-->
+<!--<div class="comments meta-last"><i class="icon-comment"></i>{{ detail.post.get_count_likes }}</div>-->
+        </div>
+    </div>
+    <div class="post-body">
+        {{ detail.post.content }}
+    </div>
+
+    {% include 'web_site/components/_comments.html' %}
+    {% include 'web_site/components/_add_comments.html' %}
+</div>

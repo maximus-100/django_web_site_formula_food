@@ -1,0 +1,165 @@
+{% extends 'base.html' %}
+
+{% block links %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+{% endblock links %}
+
+{% block main %}
+<div class="container">
+    <div class="main-body">
+        <div class="row gutters-sm">
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex flex-column align-items-center text-center">
+                            <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin"
+                                 class="rounded-circle" width="150">
+                            <div class="mt-3 text-black">
+                                <h4>{{ user_profile }}</h4>
+                                <p class="text-secondary mb-1 text-black">{{ user_profile.bio }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mt-3">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                            <h6 class="mb-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                     stroke-linejoin="round" class="feather feather-globe mr-2 icon-inline">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                                </svg>
+                                Website
+                            </h6>
+                            <span class="text-secondary">{{ user_profile.website_url }}</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                            <h6 class="mb-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                     stroke-linejoin="round" class="feather feather-github mr-2 icon-inline">
+                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                                </svg>
+                                Github
+                            </h6>
+                            <span class="text-secondary">{{ user_profile.github_url }}</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                            <h6 class="mb-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                     width="24" height="24"
+                                     viewBox="0 0 172 172"
+                                     style=" fill:#000000;" fill="none" stroke="currentColor" stroke-width="2"
+                                     stroke-linecap="round"
+                                     stroke-linejoin="round" class="feather feather-github mr-2 icon-inline">
+                                    <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1"
+                                       stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10"
+                                       stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none"
+                                       font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                                        <path d="M0,172v-172h172v172z" fill="none"></path>
+                                        <g fill="#3498db">
+                                            <path d="M144.21797,22.84375c-1.86365,0.08222 -3.60003,0.62506 -5.12864,1.24297c-1.43191,0.57599 -6.90293,2.9225 -15.52032,6.61797c-8.62488,3.69868 -20.0452,8.60178 -32.2276,13.84062c-24.36481,10.47769 -51.75727,22.27192 -65.78776,28.30833c-0.52759,0.2269 -2.3685,0.815 -4.3224,2.34036c-1.9539,1.52536 -4.03125,4.68615 -4.03125,8.20808c0,2.83995 1.35345,5.66135 3.05703,7.34583c1.70358,1.68449 3.50619,2.5166 5.05026,3.14661c5.60242,2.28595 22.97797,9.39641 26.25911,10.7388c1.15472,3.53737 7.44387,22.77582 8.90234,27.49089c0.96144,3.1115 1.87665,5.06022 3.06823,6.60677c0.59579,0.77327 1.28835,1.45096 2.12761,1.98203c0.33546,0.21225 0.70327,0.37575 1.075,0.5263l0.02239,0.0112c0.08566,0.0344 0.1595,0.09279 0.24636,0.12317c0.16387,0.05733 0.27349,0.06421 0.49271,0.11198c0.87332,0.28204 1.75504,0.45911 2.54192,0.45911c3.35493,0.00001 5.40859,-1.84765 5.40859,-1.84765l0.12318,-0.08958l17.25599,-14.92683l20.92891,19.79792c0.29467,0.41669 3.04294,4.18802 9.10391,4.18802c3.5988,0 6.45362,-1.80585 8.28646,-3.72891c1.83284,-1.92306 2.97473,-3.9434 3.46016,-6.48359v-0.0112c0.45402,-2.40036 19.74192,-101.41953 19.74192,-101.41953l-0.03359,0.13437c0.56462,-2.57721 0.71258,-4.97734 0.08958,-7.34583c-0.62303,-2.36849 -2.26463,-4.63621 -4.3,-5.85651c-2.03517,-1.22003 -4.02645,-1.59394 -5.89011,-1.51172zM143.14297,34.82552c-0.02752,0.16733 0.02061,0.08319 -0.02239,0.27995l-0.0112,0.06719l-0.0112,0.06719c0,0 -19.04899,97.75268 -19.75312,101.47552c0.05152,-0.28115 -0.18403,0.27786 -0.42552,0.61589c-0.34143,-0.23532 -1.04141,-0.5375 -1.04141,-0.5375l-0.11198,-0.12317l-28.58828,-27.04297l-20.21224,17.46875l6.01329,-24.07552c0,0 37.58871,-38.91008 39.85338,-41.17474c1.82321,-1.81173 2.20599,-2.44329 2.20599,-3.06823c0,-0.83707 -0.43627,-1.44453 -1.41094,-1.44453c-0.8772,0 -2.05683,0.85283 -2.6875,1.25417c-8.21645,5.23766 -44.28806,26.26091 -60.45755,35.66536c-2.5696,-1.0516 -20.42155,-8.35909 -26.47187,-10.82839c0.04581,-0.02007 0.03073,-0.01295 0.07839,-0.03359c14.03417,-6.03799 41.41521,-17.83213 65.77656,-28.30833c12.18068,-5.2381 23.60967,-10.14492 32.22761,-13.84063c8.48524,-3.6388 14.38108,-6.14309 15.05,-6.41641z"></path>
+                                        </g>
+                                    </g>
+                                </svg>
+                                Telegram
+                            </h6>
+                            <span class="text-secondary">{{ user_profile.telegram_url }}</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                            <h6 class="mb-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                     stroke-linejoin="round"
+                                     class="feather feather-instagram mr-2 icon-inline text-danger">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                </svg>
+                                Instagram
+                            </h6>
+                            <span class="text-secondary">{{ user_profile.instagram_url }}</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                            <h6 class="mb-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                     stroke-linejoin="round"
+                                     class="feather feather-facebook mr-2 icon-inline text-primary">
+                                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                                </svg>
+                                Facebook
+                            </h6>
+                            <span class="text-secondary">{{ user_profile.facebook_url }}</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-3 text-black">
+                                <h6 class="mb-0">Full Name</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                {{ user_profile }}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3 text-black">
+                                <h6 class="mb-0">Email</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                {{ user_profile.user.email }}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3 text-black">
+                                <h6 class="mb-0">Phone</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                {{ user_profile.phone }}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3 text-black">
+                                <h6 class="mb-0">Mobile</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                {{ user_profile.mobile }}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3 text-black">
+                                <h6 class="mb-0">Address</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                {{ user_profile.address }}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                {% if request.user == user_profile.user %}
+                                <a href="{% url 'edit_profile' user_profile.user.username %}" class="btn btn-info">Изменить</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock main %}

@@ -1,0 +1,19 @@
+{% load static %}
+
+<footer class="main-footer" style="background: url({% static 'web_site/img/dishes/image_14.jpg' %}); background-size: cover; background-position: center bottom;
+backdrop-filter: blur(5px);">
+    <div class="container">
+        <div class="row">
+            {% include 'components/_footer_contact_details.html' %}
+            {% include 'components/_footer_menu.html' %}
+        </div>
+    </div>
+    <div class="copyrights">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

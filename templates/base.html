@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    {% block links %}
+    {% endblock links %}
+
+    {% include 'layout/head.html' %}
+</head>
+<body>
+
+{% include 'layout/header.html' %}
+
+<!-- Hero Section-->
+
+<main>
+    {% block main %}
+
+    {% endblock main %}
+</main>
+
+<!-- Page Footer-->
+{% include 'layout/footer.html' %}
+<!-- JavaScript files-->
+
+{% block scripts %}
+{% endblock scripts %}
+
+
+<!-- Пакет JavaScript с Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+<script src="{% static 'web_site/vendor/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'web_site/vendor/popper.js/umd/popper.min.js' %}"></script>
+<script src="{% static 'web_site/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'web_site/vendor/jquery.cookie/jquery.cookie.js' %}"></script>
+<script src="{% static 'web_site/vendor/@fancyapps/fancybox/jquery.fancybox.min.js' %}"></script>
+<script src="{% static 'web_site/js/front.js' %}"></script>
+</body>
+</html>

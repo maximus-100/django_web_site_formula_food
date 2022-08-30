@@ -1,0 +1,17 @@
+body {
+background: #1d2026;
+}
+
+
+.transparent75 {
+filter: alpha(Opacity=75); /* Полупрозрачность для IE */
+opacity: 0.75; /* Полупрозрачность для других браузеров */
+}
+.transparent50 {
+filter: alpha(Opacity=50);
+opacity: 0.5;
+}
+.transparent25 {
+filter: alpha(Opacity=25);
+opacity: 0.25;
+}

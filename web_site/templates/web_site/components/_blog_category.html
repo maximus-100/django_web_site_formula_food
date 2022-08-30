@@ -1,0 +1,14 @@
+{% load store_tags %}
+
+<div class="widget categories">
+    <header>
+        <h3 class="h6">КАТЕГОРИИ</h3>
+    </header>
+    {% get_categories as categories %}
+    {% for category in categories %}
+
+    <div class="item d-flex justify-content-between"><a href="{{ category.get_absolute_url }}">{{ category }}</a></div>
+    <hr class="dropdown-divider">
+
+    {% endfor %}
+</div>

@@ -1,0 +1,24 @@
+<div class="post-comments">
+    <header>
+        <h3 class="h6">Post Comments<span class="no-of-comments">({{ detail.comment_count }})</span></h3>
+    </header>
+    {% for item in detail.comment_data %}
+    <div class="comment">
+        <div class="comment-header d-flex justify-content-between">
+            <div class="user d-flex align-items-center">
+                <div class="image"><img src="{{ item.profile_image }}" alt="..."
+                                        class="img-fluid rounded-circle"></div>
+                <div class="title"><strong>{{ item.comment.name }}</strong><span
+                        class="date">{{ item.comment.date_added }}</span></div>
+            </div>
+        </div>
+        <div class="comment-body">
+            <p>
+                {{ item.comment.body }}
+            </p>
+        </div>
+    </div>
+    {% empty %}
+    <h3>Коментари нет. Ваш может оказатся первым!</h3>
+    {% endfor %}
+</div>

@@ -1,0 +1,63 @@
+{% load store_tags %}
+
+
+
+
+<div id="navbarcollapse" class="collapse navbar-collapse">
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a href="{% url 'index' %}" class="nav-link active">Home</a>
+        </li>
+    </ul>
+
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item dropdown">
+            <a class="nav-link active dropdown-toggle" href="#" id="navbarMenu" role="button"
+               data-bs-toggle="dropdown" aria-expanded="false">
+                КАТЕГОРИИ
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarMenu">
+                {% get_categories as categories %}
+                {% for category in categories %}
+                <li><a class="dropdown-item" href="{{ category.get_absolute_url }}">{{ category }}</a></li>
+                <li><hr class="dropdown-divider"></li>
+                {% endfor %}
+            </ul>
+        </li>
+    </ul>
+
+<!--    <div class="navbar-text">-->
+<!--        <a href="#" class="search-btn">-->
+<!--            <i class="icon-search-1"></i>-->
+<!--        </a>-->
+<!--    </div>-->
+
+
+
+    <ul class="langs navbar-text list-unstyled">
+        {% if request.user.is_authenticated %}
+        <li class="nav-item dropdown">
+            <a class="active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+               aria-expanded="false">
+                <i class="fa fa-user-circle" aria-hidden="true" style="font-size: 20px;"></i>
+                {{ request.user.username }}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item border-0 m-1" href="{% url 'profile' request.user.username %}">Profile</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item border-0" href="{% url 'change_account' %}">Change account</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item border-0" href="{% url 'add' %}">Add post</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item border-0 text-danger" href="{% url 'logout' %}">Logout</a>
+            </div>
+        </li>
+
+        {% else %}
+        <a href="{% url 'login' %}" class="active">
+            <i class="fa fa-user-circle" aria-hidden="true" style="font-size: 20px;"></i>
+        </a>
+
+        {% endif %}
+    </ul>
+</div>
+
